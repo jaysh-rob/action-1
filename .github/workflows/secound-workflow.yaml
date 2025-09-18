@@ -10,9 +10,9 @@ jobs:
 
       - name: List and read file
         run: |
-             echo "My first github action jobs"
-             ls -ltra
-             cat README.md
+          echo "My first github action jobs"
+          ls -ltra
+          cat README.md
 
       - name: Generate ACII Artwork
         run: cowsay -f dragon "Run for cover, I am a DRAGON.....RAWR" >> dragon.txt 

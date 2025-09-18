@@ -1,7 +1,9 @@
+name: ASCI Generator
+
 on: push
 
 jobs:
-    build_job:
+    build_job_1:
         runs-on: ubuntu-latest
         steps:
          - name: Install Cowsay Program
@@ -13,7 +15,7 @@ jobs:
          - name: sleep for 30 seconds
            run: sleep 30
 
-    test_job: 
+    test_job_2: 
         runs-on: ubuntu-latest
         steps:
          - name: Sleep for 10 seconds
@@ -22,8 +24,8 @@ jobs:
          - name: Test File Exists
            run: grep -i "dragon" dragon.txt
 
-    deploy_job: 
-        runs-on: ubuntu-lates
+    deploy_job_3: 
+        runs-on: ubuntu-latest
         steps: 
         - name: Read File
           run: cat dragon.txt

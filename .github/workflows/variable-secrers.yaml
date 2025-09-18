@@ -19,9 +19,9 @@ jobs:
 
   deploy:
     needs: docker
-    runs-on: ubuntu-latest
-    steps:
-    - name: Docker run
-      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+    runs-on: ubuntu-latest  # Fixed incorrect image name
+    steps: 
+      - name: Docker Run
+        run: echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
 
     

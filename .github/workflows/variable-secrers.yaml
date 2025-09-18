@@ -16,4 +16,12 @@ jobs:
       run: echo docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Push  
       run: echo docker push $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker run
+      run: docker run -d -p 8080:80 $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+
     

@@ -9,6 +9,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v5
 
+      - name: Install cowsay program
+        run: sudo apt-get install cowsay -y 
+
       - name: List and read file
         run: |
              echo "My first github action jobs"
@@ -17,9 +20,15 @@ jobs:
 
       - name: Generate ACII Artwork
         run: cowsay -f dragon "Run for cover, I am a DRAGON.....RAWR" >> dragon.txt 
-    #   - name: List files
-    #     run: ls 
-    #   - name: Read File 
-    #     run: cat README.md
+
+      - name: Test file Exists
+        run: grep -i "dragon" dragon.txt
+
+      - name: Read File
+        run: cat dragon.txt
+
+      - name: List Repo Files
+        run: ls -ltra
+
 
 

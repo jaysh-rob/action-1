@@ -1,0 +1,22 @@
+name: Environment and Secrets 
+
+on: push
+
+env:
+    CONTAINER_REGISTRY: docker.io
+    DOCKER_USERNAME: jackdhub
+    IMAGE_NAME: my-test-image
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Docker Build
+      run: echo docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    - name: Docker Login
+      env:
+        DOCKER_PASSWORD: s3oojgkhredv#bcf
+      run: echo docker login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD
+    - name: Docker Push
+      run: echo docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+    

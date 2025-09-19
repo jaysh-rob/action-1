@@ -1,6 +1,31 @@
+# name: Matrix Configuration
+# on: push
+
+# jobs:
+#   docker_linux:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Echo Docker Details
+#         run: docker info
+
+#       - name: Run Image
+#         run: docker run hello-world
+
+
+#   deploy_on_windows:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Echo docker detail
+#         run: docker info
+
+#       - name: Run Image
+#         run: docker run hello-world
+
 name: matrix configuration
 
-on: push
+on: 
+  push:
+  workflow_dispatch: 
 
 jobs:
   deploy:
@@ -9,13 +34,13 @@ jobs:
       max-parallel: 2
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        image: [hello-world, alpine]
+        images: [hello-world, alpine]
         exclude:
-          - image: alpine
+          - images: alpine
             os: windows-latest
         include:
-          - image: amd64/alpine
-            os: 
+          - images: amd64/alpine
+            os: ubuntu-20.04
 
     runs-on: ${{ matrix.os }}
 
@@ -24,7 +49,7 @@ jobs:
         run: docker info
 
       - name: Pull and run Docker image
-        run: docker run ${{ matrix.image }}
+        run: docker run ${{ matrix.images }}
 
       
        

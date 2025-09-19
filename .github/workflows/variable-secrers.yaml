@@ -1,8 +1,9 @@
 name: Environment and Secrets 
 
 on: 
-  schedule:
-    - cron: '*/1 * * * *'
+  workflow_dispatch: 
+  # schedule:
+  #   - cron: '*/1 * * * *'
     
 
 env:

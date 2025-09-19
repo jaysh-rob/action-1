@@ -1,26 +1,3 @@
-# name: Matrix Configuration
-# on: push
-
-# jobs:
-#   docker_linux:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Echo Docker Details
-#         run: docker info
-
-#       - name: Run Image
-#         run: docker run hello-world
-
-
-#   deploy_on_windows:
-#     runs-on: windows-latest
-#     steps:
-#       - name: Echo docker detail
-#         run: docker info
-
-#       - name: Run Image
-#         run: docker run hello-world
-
 name: matrix configuration
 
 on: push

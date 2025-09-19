@@ -22,20 +22,25 @@
 #         run: docker run hello-world
 
 name: matrix configuration
+
 on: push
+
 jobs:
   deploy:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-20.04, windows-latest]
-        images: [hello-world, alpine]
+        image: [hello-world, alpine]
+
     runs-on: ${{ matrix.os }}
+
     steps:
-      - name: Echo docker details
+      - name: Show Docker info
         run: docker info
 
-      - name: Run images on ${{ matrix.images }}
-        run: docker run ${{ matrix.images }}
+      - name: Pull and run Docker image
+        run: docker run ${{ matrix.image }}
+
       
        
 

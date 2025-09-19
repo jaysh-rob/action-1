@@ -1,0 +1,28 @@
+
+
+on: push
+
+jobs:
+  docker_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Docker Details
+        run: docker info
+
+  linux_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Image
+        run: docker run hello-world
+
+  deploy_on_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Echo docker detail
+        run: docker info
+
+  windows_hello:
+      runs-on: windows-latest
+      steps:
+        - name: Run Image
+          run: docker run hello-world

@@ -7,7 +7,7 @@ on:
   push:
 
     
-
+  
 env:
     CONTAINER_REGISTRY: docker.io
     IMAGE_NAME: my-test-image
